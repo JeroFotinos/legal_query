@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import time
 
 from selenium.webdriver.chrome.service import Service
@@ -18,11 +19,12 @@ service = Service(executable_path=chrome_driver_path)
 # Initialize the Chrome driver with the service and options
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+
 base_url = 'https://sjconsulta.csjn.gov.ar/sjconsulta/documentos/verDocumentoByIdLinksJSP.html?idDocumento=8003291'
 driver.get(base_url)
 
+link = driver.find_element_by_link_text("Word")
 
-search = driver.find_element_by_name("s")
 
 print(search)
 
