@@ -15,7 +15,7 @@ tomos_links = soup.find_all("a", class_="linkTomo")
 
 # Extraer los enlaces y descargarlos
 tomo_url = "https://sjservicios.csjn.gov.ar"  # Base URL para construir los enlaces completos
-for link in tomos_links[0:5]:
+for link in tomos_links:
     fallo_url = tomo_url + link['href']    
     tomo_id = link['href'].split('=')[-1]  # Extraer el ID del tomo para el nombre del archivo
     response = requests.get(fallo_url)  
@@ -26,3 +26,4 @@ for link in tomos_links[0:5]:
         time.sleep(2)
     else:
         print("status_code:", response.status_code)
+        
